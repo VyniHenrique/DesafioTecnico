@@ -38,6 +38,7 @@ public class ContaService {
     }
 
     public void atualizar(Conta conta){
+        validator.validar(conta);
         contaRepository.save(conta);
     }
 
