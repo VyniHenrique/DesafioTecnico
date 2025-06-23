@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
 
+// Classe para fazer a validação da Conta antes de ser cadastrada no banco de dados
 @Component
 public class ContaValidator {
 

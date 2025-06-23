@@ -12,6 +12,7 @@ import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+//Classe que controla as requisições da API para o endpoint /contas/...
 @RestController
 @RequestMapping("/contas")
 @Tag(name = "Contas")
@@ -25,6 +26,7 @@ public class ContaController {
         this.contaMapper = contaMapper;
     }
 
+//  Requisição do tipo PUT para atualizar uma Conta
     @PutMapping("{id}")
     @Operation(summary = "Atualizar", description = "Atuzaliza as informações de uma conta")
     @ApiResponses({
@@ -46,7 +48,7 @@ public class ContaController {
 
         }
 
-
+//  Requisição do tipo DELETE para atualizar a situação da Conta para 'CANCELADA'
     @DeleteMapping("{id}")
     @Operation(summary = "Cancelar", description = "Atualiza o status da conta para 'CANCELADA' ")
     @ApiResponses({

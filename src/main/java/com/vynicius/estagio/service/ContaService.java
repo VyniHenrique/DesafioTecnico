@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
+// Camada de service para realizar as operações lógicas da API no controller da Conta
 @Service
 public class ContaService {
 

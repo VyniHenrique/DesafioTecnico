@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
+// Camada de service para realizar as operações lógicas da API no controller do Cliente
 @Service
 public class ClienteService {
 
@@ -40,6 +41,7 @@ public class ClienteService {
         clienteRepository.delete(cliente);
     }
 
+// Verifica se o cliente possui uma Conta ligada ao seu ID
     public boolean possuiConta(Cliente cliente){
         return contaRepository.existsByCliente(cliente);
     }

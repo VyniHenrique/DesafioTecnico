@@ -13,10 +13,13 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import java.util.List;
 import java.util.stream.Collectors;
 
+
+//Classe que captura as Exceptions e, se necessário, lança no momento da requisição
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
 
+//  Captura as MethodArgumentNotValidException e lista os campos que deram erro
     @ExceptionHandler(MethodArgumentNotValidException.class)
     @ResponseStatus(HttpStatus.UNPROCESSABLE_ENTITY)
     public ErroResposta handleMethodArgumentNotValidException(MethodArgumentNotValidException e){
@@ -31,19 +34,21 @@ public class GlobalExceptionHandler {
     }
 
 
-
+//  Captura as ValorInvalidoException e lança a mensagem que foi passada no momento que a Exception foi chamada
     @ExceptionHandler(ValorInvalidoException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ErroResposta handleValorInvalidoException(ValorInvalidoException e){
         return ErroResposta.respostaPadrao(e.getMessage());
     }
 
+//  Captura as IllegalArgumentException e lança a mensagem que foi passada no momento que a Exception foi chamada
     @ExceptionHandler(IllegalArgumentException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ErroResposta handleIllegalArgumentException(IllegalArgumentException e){
         return ErroResposta.respostaPadrao(e.getMessage());
     }
 
+//  Captura todas as Exceptions não tratadas e lança uma resposta de código 500
     @ExceptionHandler(RuntimeException.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public ErroResposta handleExeptionNaoTratada(RuntimeException e){

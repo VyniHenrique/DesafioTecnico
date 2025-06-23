@@ -8,6 +8,7 @@ import jakarta.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.time.YearMonth;
 
+//DTO da classe Conta
 @Schema(name = "Conta")
 public record ContaDTO (
 

@@ -17,11 +17,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+//Classe que controla as requisições da API para o endpoint /clientes/...
 @RestController
 @RequestMapping("clientes")
 @Tag(name = "Clientes")
@@ -39,6 +39,7 @@ public class ClienteController implements GenericController{
         this.contaMapper = contaMapper;
     }
 
+//  Requisição do tipo POST para criar um Cliente
     @PostMapping
     @Operation(summary = "Cadastrar", description = "Cadastra um novo Cliente")
     @ApiResponses({
@@ -56,6 +57,7 @@ public class ClienteController implements GenericController{
         return ResponseEntity.created(location).build();
     }
 
+//  Requisição do tipo GET para listar os Clientes
     @GetMapping
     @Operation(summary = "Listar", description = "Lista todos os Clientes salvos na base de dados")
     @ApiResponses({
@@ -75,6 +77,7 @@ public class ClienteController implements GenericController{
         return ResponseEntity.ok(listaClientes);
     }
 
+//  Requisição do tipo PUT para atualizar um Cliente
     @PutMapping("/{id}")
     @Operation(summary = "Atualizar", description = "Atualiza um Cliente salvo na base de dados")
     @ApiResponses({
@@ -100,6 +103,7 @@ public class ClienteController implements GenericController{
         return ResponseEntity.notFound().build();
     }
 
+//  Requisição do tipo DELETE para deletar um Cliente
     @DeleteMapping("/{id}")
     @Operation(summary = "Deletar", description = "Deleta um cliente da base de dados")
     @ApiResponses({
@@ -120,7 +124,7 @@ public class ClienteController implements GenericController{
         return ResponseEntity.notFound().build();
     }
 
-
+//  Requisição do tipo POST para criar uma conta
     @PostMapping("{idCliente}/contas")
     @Operation(summary = "Criar", description = "Cria uma conta ligada a um cliente")
     @ApiResponses({
@@ -137,6 +141,7 @@ public class ClienteController implements GenericController{
         return ResponseEntity.created(location).build();
     }
 
+//  Requisição do tipo POST para criar uma nova Conta
     @GetMapping("{idCliente}/contas")
     @Operation(summary = "Listar", description = "Lista todas as contas ligadas ao id de um Cliente")
     @ApiResponses({

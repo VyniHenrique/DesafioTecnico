@@ -6,6 +6,7 @@ import lombok.Data;
 
 import java.math.BigDecimal;
 
+//Conta da camda de persistência
 @Entity
 @Table(name = "conta")
 @Data

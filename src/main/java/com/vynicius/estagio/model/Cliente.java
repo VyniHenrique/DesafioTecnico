@@ -6,6 +6,7 @@ import lombok.Data;
 
 import java.util.List;
 
+//Cliente da camda de persistência
 @Entity
 @Table(name = "cliente")
 @Data
